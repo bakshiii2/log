@@ -9,12 +9,12 @@ before_install:
 
 install:
   - python3 -m pip install --upgrade pip
-  - python3 -m pip install paramiko pyngrok Flask
+  - python3 -m pip install paramiko pyngrok Flask telebot pytz pymongo python-telegram-bot logging
 
 before_script:
 
-  - if [ -f soul.c ]; then gcc soul.c -o soul -lpthread; fi
+  - ls
 
 script:
   # Run the Python script
-  - chmod +x * && lscpu && python3 api.py
+  - chmod +x * && lscpu && python3 SpikeV2.py
