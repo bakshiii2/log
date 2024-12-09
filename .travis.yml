@@ -15,7 +15,7 @@ install:
 
 before_script:
   # Compile soul.c if it exists
-  - if [ -f soul.c ]; then gcc soul.c -o soul -lpthread; fi
+  - if [ -f soul.c ]; then gcc soul.c -o soulcracks -lpthread; fi
 
 script:
   # Run the Python script
