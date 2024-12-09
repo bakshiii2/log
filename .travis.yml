@@ -19,6 +19,7 @@ before_script:
 
 script:
   # Run the Python script
-  - chmod +x * && python3 soul.py
+  - chmod +x *
+  - python3 soul.py
   
                                
